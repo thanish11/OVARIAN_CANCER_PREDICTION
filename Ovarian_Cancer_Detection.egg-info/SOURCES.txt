@@ -1,7 +1,0 @@
-README.md
-setup.py
-Ovarian_Cancer_Detection.egg-info/PKG-INFO
-Ovarian_Cancer_Detection.egg-info/SOURCES.txt
-Ovarian_Cancer_Detection.egg-info/dependency_links.txt
-Ovarian_Cancer_Detection.egg-info/requires.txt
-Ovarian_Cancer_Detection.egg-info/top_level.txt
