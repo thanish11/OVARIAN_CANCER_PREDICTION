@@ -1,2 +1,0 @@
-[ 2024-10-14 09:50:11,452 ] 9 root - INFO - Data ingestion initialized with directory: data
-[ 2024-10-14 09:50:11,452 ] 30 root - ERROR - File data/data_pre_meno.csv not found in directory data.
