@@ -10,4 +10,5 @@ imblearn
 mlxtend
 shap
 sklearn-genetic
+flask
 #-e .
