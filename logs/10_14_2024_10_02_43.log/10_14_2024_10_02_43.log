@@ -1,0 +1,7 @@
+[ 2024-10-14 10:02:43,078 ] 9 root - INFO - Data ingestion initialized with directory: D:/Data_science/Healthcare_project/OVARIAN_CANCER_PREDICTION/data/
+[ 2024-10-14 10:02:43,085 ] 19 root - INFO - Data loaded successfully from data_pre_meno.csv.
+[ 2024-10-14 10:02:43,086 ] 27 root - INFO - Column names modified successfully.
+[ 2024-10-14 10:02:43,089 ] 19 root - INFO - Data loaded successfully from data_post_meno.csv.
+[ 2024-10-14 10:02:43,090 ] 27 root - INFO - Column names modified successfully.
+[ 2024-10-14 10:02:43,090 ] 50 root - INFO - Data validation successful. All required columns are present.
+[ 2024-10-14 10:02:43,090 ] 50 root - INFO - Data validation successful. All required columns are present.

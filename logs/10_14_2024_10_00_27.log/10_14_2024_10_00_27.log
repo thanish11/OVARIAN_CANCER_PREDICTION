@@ -1,0 +1,6 @@
+[ 2024-10-14 10:00:27,455 ] 9 root - INFO - Data ingestion initialized with directory: D:/Data_science/Healthcare_project/OVARIAN_CANCER_PREDICTION/data/
+[ 2024-10-14 10:00:27,687 ] 19 root - INFO - Data loaded successfully from data_pre_meno.csv.
+[ 2024-10-14 10:00:27,689 ] 26 root - INFO - Column names modified successfully.
+[ 2024-10-14 10:00:27,738 ] 19 root - INFO - Data loaded successfully from data_post_meno.csv.
+[ 2024-10-14 10:00:27,739 ] 26 root - INFO - Column names modified successfully.
+[ 2024-10-14 10:00:27,846 ] 52 root - ERROR - Missing columns in the DataFrame: ['GLU.']

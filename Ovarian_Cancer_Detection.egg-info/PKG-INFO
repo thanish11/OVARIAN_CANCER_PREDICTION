@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: Ovarian_Cancer_Detection
+Version: 0.0.1
+Author: Thanish
+Author-email: thanishsaravana2001@gmail.com
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: xgboost
+Requires-Dist: lightgbm
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: imblearn
+Requires-Dist: mlxtend
+Requires-Dist: shap
