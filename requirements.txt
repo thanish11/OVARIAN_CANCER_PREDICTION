@@ -9,4 +9,5 @@ seaborn
 imblearn
 mlxtend
 shap
--e .
+sklearn-genetic
+#-e .
