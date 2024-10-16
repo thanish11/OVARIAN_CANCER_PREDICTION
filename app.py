@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from src.pipeline.predict_pipeline import PredictionPipeline
+from sklearn.preprocessing import StandardScaler
 import pandas as pd
 
 app = Flask(__name__)
@@ -48,7 +49,10 @@ def predict():
                 }
 
                 input_data = pd.DataFrame([user_input])
-                prediction = premeno_model.predict(input_data)
+                # Apply StandardScaler to the input data
+                scaler = StandardScaler()
+                scaled_data = scaler.fit_transform(input_data)
+                prediction = premeno_model.predict(scaled_data)
 
             elif cancer_type == 'postmenopausal':
                 # Collect postmenopausal inputs
@@ -77,11 +81,14 @@ def predict():
                 }
 
                 input_data = pd.DataFrame([user_input])
-                prediction = postmeno_model.predict(input_data)
+                 # Apply StandardScaler to the input data
+                scaler = StandardScaler()
+                scaled_data = scaler.fit_transform(input_data)
+                prediction = postmeno_model.predict(scaled_data)
 
             # If prediction is positive (1 or cancer detected), redirect to the chatbot
-            if prediction[0] == 1:
-                return redirect(url_for('chatbot'))
+            # if prediction[0] == 1:
+            #     return redirect(url_for('chatbot'))
 
             return render_template('index.html', prediction=prediction[0])
 
