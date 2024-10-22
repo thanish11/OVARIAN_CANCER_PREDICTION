@@ -4,7 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Result</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h3 {
+            color: #e74c3c;
+        }
+        p {
+            color: #34495e;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,7 +51,7 @@
         {% if prediction == 1 %}
         <h3>Cancer Detected</h3>
         <p>We recommend you explore more about ovarian cancer and get a second opinion from our chatbot.</p>
-        <a href="/chatbot" class="button">Talk to the Chatbot</a>
+        <a href="/chat" class="button">Talk to the Chatbot</a>
         {% elif prediction == 0 %}
         <h3>No Cancer Detected</h3>
         <p>There are no signs of ovarian cancer. However, feel free to consult our chatbot for further questions.</p>

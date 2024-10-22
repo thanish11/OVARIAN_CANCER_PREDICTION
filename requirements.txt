@@ -11,4 +11,17 @@ mlxtend
 shap
 sklearn-genetic
 flask
+torch 
+transformers
+langchain
+langchain-huggingface
+huggingface-hub
+langchain-community
+accelerate
+pdfminer.six
+python-dotenv
+PyPDF2
+#Flask-Cors
+faiss-cpu
+pypdf
 #-e .

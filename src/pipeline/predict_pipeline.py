@@ -6,10 +6,12 @@ from src.exception import CustomException
 import sys
 
 class PredictionPipeline:
-    def __init__(self, model_path):
+    def __init__(self, model_path, scaler_path):
         try:
             with open(model_path, 'rb') as f:
                 self.model = pickle.load(f)
+            with open(scaler_path, 'rb') as f:
+                self.scaler = pickle.load(f)
         except Exception as e:
             raise CustomException(f"Error loading model from {model_path}", sys)
 

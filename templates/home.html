@@ -4,6 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ovarian Cancer Prediction Tool</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        input[type="radio"], input[type="text"] {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .form-section {
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #c0392b;
+        }
+    </style>
     <script>
         function toggleForm(cancerType) {
             document.getElementById("premenopausal-form").style.display = cancerType === 'premenopausal' ? 'block' : 'none';
@@ -20,150 +84,66 @@
 
         <!-- Radio buttons to choose cancer type -->
         <input type="radio" name="cancer_type" value="premenopausal" onclick="toggleForm('premenopausal')"> Premenopausal<br>
-        <input type="radio" name="cancer_type" value="postmenopausal" onclick="toggleForm('postmenopausal')"> Postmenopausal<br><br>
+        <input type="radio" name="cancer_type" value="postmenopausal" onclick="toggleForm('postmenopausal')"> Postmenopausal<br>
 
         <!-- Premenopausal form -->
-        <div id="premenopausal-form" style="display: none;">
+        <div id="premenopausal-form" class="form-section" style="display: none;">
             <form action="/predict" method="POST">
                 <input type="hidden" name="cancer_type" value="premenopausal">
-                <label for="Age">Age:</label>
-                <input type="text" id="Age" name="Age"><br><br>
+
+                <!-- Premenopausal fields -->
+                <label for="CA125">CA125:</label>
+                <input type="text" id="CA125" name="CA125" required>
 
                 <label for="HE4">HE4 Level:</label>
-                <input type="text" id="HE4" name="HE4"><br><br>
-
-                <label for="CA724">CA724 Level:</label>
-                <input type="text" id="ca724" name="CA724"><br><br>
+                <input type="text" id="HE4" name="HE4" required>
 
                 <label for="CEA">CEA Level:</label>
-                <input type="text" id="CEA" name="CEA"><br><br>
+                <input type="text" id="CEA" name="CEA" required>
 
-                <label for="GLO">GLO Level:</label>
-                <input type="text" id="GLO" name="GLO"><br><br>
+                <label for="ALB">Albumin (ALB):</label>
+                <input type="text" id="ALB" name="ALB" required>
 
-                <label for="ALB">ALB (Albumin) Level:</label>
-                <input type="text" id="ALB" name="ALB"><br><br>
+                <label for="TP">Total Protein (TP):</label>
+                <input type="text" id="TP" name="TP" required>
 
-                <label for="CA199">CA199 Level:</label>
-                <input type="text" id="CA199" name="CA199"><br><br>
-
-                <label for="MCH">MCH Level:</label>
-                <input type="text" id="MCH" name="MCH"><br><br>
-
-                <label for="AFP">AFP Level:</label>
-                <input type="text" id="AFP" name="AFP"><br><br>
-
-                <label for="TP">TP (Total Protein) Level:</label>
-                <input type="text" id="TP" name="TP"><br><br>
-
-                <label for="AG">AG (Albumin-Globulin Ratio):</label>
-                <input type="text" id="AG" name="AG"><br><br>
-
-                <label for="CA125">CA125 Level:</label>
-                <input type="text" id="CA125" name="CA125"><br><br>
-
-                <label for="Ca">Ca (Calcium) Level:</label>
-                <input type="text" id="Ca" name="Ca"><br><br>
-
-                <label for="Na">Na (Sodium) Level:</label>
-                <input type="text" id="Na" name="Na"><br><br>
-
-                <label for="MPV">MPV (Mean Platelet Volume):</label>
-                <input type="text" id="MPV" name="MPV"><br><br>
-
-                <label for="GLU">GLU (Glucose) Level:</label>
-                <input type="text" id="GLU" name="GLU"><br><br>
-
-                <label for="CL">CL (Chloride) Level:</label>
-                <input type="text" id="CL" name="CL"><br><br>
-
-                <label for="NEU">NEU (Neutrophils) Level:</label>
-                <input type="text" id="NEU" name="NEU"><br><br>
-
-                <label for="UA">UA (Uric Acid) Level:</label>
-                <input type="text" id="UA" name="UA"><br><br>
-
-                <label for="MONO1">MONO1 (Monocytes) Level:</label>
-                <input type="text" id="MONO1" name="MONO1"><br><br>
-
-                <label for="ALT">ALT (Alanine Transaminase) Level:</label>
-                <input type="text" id="ALT" name="ALT"><br><br>
-
-                <button type="submit">Submit for Prediction</button>
+                <label for="LYM">Lymphocytes (LYM):</label>
+                <input type="text" id="LYM" name="LYM" required>
+                
+                <input type="submit" value="Submit for Prediction">
             </form>
         </div>
 
         <!-- Postmenopausal form -->
-        <div id="postmenopausal-form" style="display: none;">
+        <div id="postmenopausal-form" class="form-section" style="display: none;">
             <form action="/predict" method="POST">
                 <input type="hidden" name="cancer_type" value="postmenopausal">
-                <label for="Age">Age:</label>
-                <input type="text" id="Age" name="Age"><br><br>
+                
+                <!-- Postmenopausal fields -->
+                <label for="CA125">CA125:</label>
+                <input type="text" id="CA125" name="CA125" required>
 
-                <label for="HE4">HE4 Level:</label>
-                <input type="text" id="HE4" name="HE4"><br><br>
+                <label for="CA199">CA199:</label>
+                <input type="text" id="CA199" name="CA199" required>
 
-                <label for="CA125">CA125 Level:</label>
-                <input type="text" id="CA125" name="CA125"><br><br>
+                <label for="RBC">RBC:</label>
+                <input type="text" id="RBC" name="RBC" required>
 
-                <label for="CA724">CA724 Level:</label>
-                <input type="text" id="CA724" name="CA724"><br><br>
+                <label for="Na">Sodium (Na):</label>
+                <input type="text" id="Na" name="Na" required>
 
-                <label for="ALT">ALT (Alanine Transaminase) Level:</label>
-                <input type="text" id="ALT" name="ALT"><br><br>
+                <label for="MONO1">MONO%:</label>
+                <input type="text" id="MONO1" name="MONO1" required>
 
-                <label for="BUN">BUN (Blood Urea Nitrogen) Level:</label>
-                <input type="text" id="BUN" name="BUN"><br><br>
+                <label for="K">Potassium (K):</label>
+                <input type="text" id="K" name="K" required>
 
-                <label for="TBIL">TBIL (Total Bilirubin) Level:</label>
-                <input type="text" id="TBIL" name="TBIL"><br><br>
+                <label for="HCT">Hematocrit (HCT):</label>
+                <input type="text" id="HCT" name="HCT" required>
 
-                <label for="PLT">PLT (Platelet Count):</label>
-                <input type="text" id="PLT" name="PLT"><br><br>
-
-                <label for="BASO1">BASO1 (Basophils) Level:</label>
-                <input type="text" id="BASO1" name="BASO1"><br><br>
-
-                <label for="PCT">PCT (Procalcitonin) Level:</label>
-                <input type="text" id="PCT" name="PCT"><br><br>
-
-                <label for="Ca">Ca (Calcium) Level:</label>
-                <input type="text" id="Ca" name="Ca"><br><br>
-
-                <label for="K">K (Potassium) Level:</label>
-                <input type="text" id="K" name="K"><br><br>
-
-                <label for="ALB">ALB (Albumin) Level:</label>
-                <input type="text" id="ALB" name="ALB"><br><br>
-
-                <label for="CEA">CEA (Carcinoembryonic Antigen) Level:</label>
-                <input type="text" id="CEA" name="CEA"><br><br>
-
-                <label for="CO2CP">CO2CP (Carbon Dioxide Combining Power):</label>
-                <input type="text" id="CO2CP" name="CO2CP"><br><br>
-
-                <label for="CL">CL (Chloride) Level:</label>
-                <input type="text" id="CL" name="CL"><br><br>
-
-                <label for="CREA">CREA (Creatinine) Level:</label>
-                <input type="text" id="CREA" name="CREA"><br><br>
-
-                <label for="DBIL">DBIL (Direct Bilirubin) Level:</label>
-                <input type="text" id="DBIL" name="DBIL"><br><br>
-
-                <label for="UA">UA (Uric Acid) Level:</label>
-                <input type="text" id="UA" name="UA"><br><br>
-
-                <label for="CA199">CA199 (Cancer Antigen 19-9) Level:</label>
-                <input type="text" id="CA199" name="CA199"><br><br>
-
-                <label for="EO1">EO1 (Eosinophils) Level:</label>
-                <input type="text" id="EO1" name="EO1"><br><br>
-
-                <button type="submit">Submit for Prediction</button>
+                <input type="submit" value="Submit for Prediction">
             </form>
         </div>
-
     </div>
 </body>
 </html>

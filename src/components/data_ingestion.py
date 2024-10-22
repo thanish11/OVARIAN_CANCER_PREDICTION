@@ -6,7 +6,7 @@ from src.logger import logging
 class DataIngestion:
     def __init__(self, data_dir):
         self.data_dir = data_dir
-        logging.info(f"Data ingestion initialized with directory: {data_dir}")
+        logging.info( f"Data ingestion initialized with directory: {data_dir}")
 
     def load_data(self, filename):
         """Load data from a CSV file and modify column names."""
