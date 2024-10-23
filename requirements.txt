@@ -21,7 +21,7 @@ accelerate
 pdfminer.six
 python-dotenv
 PyPDF2
-#Flask-Cors
+Flask-Cors
 faiss-cpu
 pypdf
 #-e .
